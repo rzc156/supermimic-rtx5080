@@ -16,22 +16,28 @@ from [CuboiLeo/SuperMimic-Reproduced](https://github.com/CuboiLeo/SuperMimic-Rep
 
 ## Headline
 
+Corrected on 2026-10-26 to use the full T−1 denominator and exclude the extra
+terminal reward. The 48k row is the mean of two evaluations.
+
 | checkpoint | train time | mean norm. return | step-weighted | failed clips |
 |---|---:|---:|---:|---:|
-| 24k | 1.6 h | 0.7969 | 0.8062 | 9/40 |
-| 40k | 2.7 h | 0.8684 | 0.8788 | 3/40 |
-| 44k | 3.0 h | 0.8693 | 0.8744 | 3/40 |
-| **48k** | **3.3 h** | **0.8743** | **0.8837** | **3/40** |
+| 24k | 1.6 h | 0.7177 | 0.7320 | 9/40 |
+| **40k** | **2.7 h** | **0.8515** | **0.8608** | **2/40** |
+| 44k | 3.0 h | 0.8510 | 0.8563 | 3/40 |
+| 48k | 3.3 h | 0.8391 | 0.8521 | 4–5/40 |
 
 - Paper Fig. 4a: **0.82** (1×H100, 1.2 h).
 - Independent reproduction e3: 24k **0.824**, 48k **0.904** on 1×RTX 5090 with 4096/4096.
-- This run: **0.874** at 48k; +5.4pp vs paper, -3.0pp vs the 5090 e3 run.
-  The gap is consistent with half the batch/env count (2048 vs 4096).
+- Observations, env/batch, hardware and evaluator implementations differ, so these
+  numbers do not establish a strict ranking or the cause of remaining gaps.
+- Two 48k evaluations produced 0.8403 and 0.8379; three clips changed trajectories
+  or failure status. Single-seed results do not establish that 48k is best.
 
 Evaluation protocol: Appendix F; each clip is played from its first frame with
 the deterministic policy, no observation/action noise, no reset noise, no DR,
-foot friction 1.0. Normalized return = sum of rewards / (0.1 × steps). A clip
-fails if the training termination fires.
+foot friction 1.0. Normalized return = sum of rewards / (0.1 × (T−1)), where T
+is the clip's frame count. Early termination does not reduce the denominator;
+the extra terminal reward step is excluded. A clip fails if training termination fires.
 
 ---
 
@@ -55,18 +61,24 @@ the headline and documents the gap in [`../REPRODUCTION_ANALYSIS.md`](../REPRODU
 results/lafan1_anchor/
 ├── summary.csv                     # 24k/40k/44k/48k table
 ├── config.json                     # exact training config
-├── benchmark_ckpt_0024000.json     # per-clip results (Appendix F)
-├── benchmark_ckpt_0040000.json
-├── benchmark_ckpt_0044000.json
-├── benchmark_ckpt_0048000.json
+├── benchmark_ckpt_*_fullclip.json  # corrected per-clip results (Appendix F)
+├── benchmark_ckpt_0048000_fullclip_rerun.json
+├── benchmark_ckpt_*.json           # legacy biased-denominator results; not for comparison
 ├── training_curve.png              # train return, imagination survival, WM error
 ├── training_metrics.csv            # raw TensorBoard scalars
+├── gifs/                           # 6 demo GIFs (walk/run/sprint/jump/dance x2)
 └── videos/
     ├── walk1_subject1.mp4          # 800 steps / 16 s
     ├── dance1_subject1.mp4         # 600 steps / 12 s
     ├── walk_sheet.png              # 4-frame contact sheet
     ├── dance_sheet.png
+    ├── run1_subject5.mp4
+    ├── sprint1_subject4.mp4
+    ├── jumps1_subject2.mp4
+    ├── dance2_subject1.mp4
     └── index.html                  # side-by-side video page
+
+Demo GIF gallery: https://rzc156.github.io/supermimic-rtx5080/results/lafan1_anchor/gifs/index.html
 ```
 
 White = policy, translucent blue = reference ghost.
@@ -88,7 +100,7 @@ uv run python scripts/data/build_library.py \
   --npz-dir data/npz/lafan1 --out data/library/lafan1.npz
 
 # 3) 16GB config: 2048 envs / batch 2048, anchor obs, H=32, UTD=0.4
-bash scripts/run_lafan1.sh lafan1_anchor 1 2048 2048 3.3 320000
+bash scripts/run_lafan1.sh lafan1_anchor_s0 1 2048 2048 3.5 48000 0
 
 # 4) Appendix-F benchmark
 bash scripts/eval_iterations.sh lafan1_anchor 24000 40000 44000 48000
@@ -106,8 +118,9 @@ scripts and exact config are included.
 
 ## Honest limitations
 
-- Single seed; no variance estimate across training seeds.
-- 2048/2048 instead of the 5090 reference's 4096/4096; the ~3pp gap is expected.
+- Single training seed; no variance estimate across training seeds. Two 48k evaluation
+  repeats differ slightly, so per-checkpoint rankings remain provisional.
+- 2048/2048 instead of the 5090 reference's 4096/4096; its causal effect is untested.
 - Anchor-relative observation deviates from the paper's Table A.1; the paper
   protocol was not run on this machine (the independent reproduction's e2/e7
   runs cover it).
