@@ -4,7 +4,8 @@ Every clip is played once from its first frame with the deterministic policy:
 no observation/action noise, no reset noise, no domain randomization (foot friction 1.0),
 deterministic physics. A clip *fails* if the training termination (pelvis height /
 tilt vs reference) fires before the clip ends. Normalised return = sum of per-step
-rewards / (max step reward * number of steps).
+rewards / (max step reward * (number of frames - 1)). Early termination does not
+reduce the denominator.
 """
 
 from __future__ import annotations
@@ -79,10 +80,12 @@ def run_benchmark(policy: Policy, npz_files: list[str], device: str = "cuda:0", 
         remaining = n_clips
         while remaining > 0:
             act = policy(obs["policy"], obs["goal"])
+            reward_steps = lib.clip_len[torch.clamp(current, max=n_clips - 1)] - 1
+            valid = active & (steps < reward_steps)
             obs, rew, term, tout, _ = env.step(act)
-            ret_sum += rew
-            term_sum += env.reward_manager.term_rewards
-            steps += 1
+            ret_sum += rew * valid
+            term_sum += env.reward_manager.term_rewards * valid.unsqueeze(-1)
+            steps += valid.long()
             done = (term | tout) & active
             if done.any():
                 ids = done.nonzero().squeeze(-1)
@@ -90,13 +93,14 @@ def run_benchmark(policy: Policy, npz_files: list[str], device: str = "cuda:0", 
                     ci = int(current[e])
                     if ci < n_clips and ci not in results:
                         st = int(steps[e])
+                        failed = bool(term[e] & valid[e])
                         results[ci] = ClipResult(
                             name=lib.clips[ci].name,
                             frames=lib.clips[ci].length,
                             steps=st,
-                            norm_return=float(ret_sum[e]) / (max_r * max(st, 1)),
-                            failed=bool(term[e]),
-                            fail_step=st if bool(term[e]) else -1,
+                            norm_return=float(ret_sum[e]) / (max_r * max(lib.clips[ci].length - 1, 1)),
+                            failed=failed,
+                            fail_step=st if failed else -1,
                             terms={n: float(term_sum[e, i]) / max(st, 1) for i, n in enumerate(term_names)},
                         )
                         remaining -= 1
@@ -120,12 +124,13 @@ def summarize(results: list[ClipResult]) -> dict:
     n = len(results)
     failed = sum(r.failed for r in results)
     mean_ret = sum(r.norm_return for r in results) / max(n, 1)
-    # Length-weighted return (paper Fig. 3a uses the benchmark aggregate; weighting by steps).
-    tot_steps = sum(r.steps for r in results)
-    w_ret = sum(r.norm_return * r.steps for r in results) / max(tot_steps, 1)
+    reward_steps = [max(r.frames - 1, 1) for r in results]
+    total_reward_steps = sum(reward_steps)
+    w_ret = sum(r.norm_return * steps for r, steps in zip(results, reward_steps, strict=True)) / max(total_reward_steps, 1)
     out = {"clips": n, "failed": failed, "mean_norm_return": mean_ret, "step_weighted_norm_return": w_ret}
     if results and results[0].terms:
-        out["terms"] = {k: sum(r.terms[k] * r.steps for r in results) / max(tot_steps, 1) for k in results[0].terms}
+        total_executed_steps = sum(r.steps for r in results)
+        out["terms"] = {k: sum(r.terms[k] * r.steps for r in results) / max(total_executed_steps, 1) for k in results[0].terms}
     return out
 
 
