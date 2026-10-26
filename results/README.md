@@ -17,21 +17,22 @@ from [CuboiLeo/SuperMimic-Reproduced](https://github.com/CuboiLeo/SuperMimic-Rep
 ## Headline
 
 Corrected on 2026-10-26 to use the full T−1 denominator and exclude the extra
-terminal reward. The 48k row is the mean of two evaluations.
+terminal reward. The 48k row is the mean of three evaluations.
 
 | checkpoint | train time | mean norm. return | step-weighted | failed clips |
 |---|---:|---:|---:|---:|
 | 24k | 1.6 h | 0.7177 | 0.7320 | 9/40 |
 | **40k** | **2.7 h** | **0.8515** | **0.8608** | **2/40** |
 | 44k | 3.0 h | 0.8510 | 0.8563 | 3/40 |
-| 48k | 3.3 h | 0.8391 | 0.8521 | 4–5/40 |
+| 48k | 3.3 h | 0.8375 (3-run mean) | 0.8504 | 4–6/40 |
 
 - Paper Fig. 4a: **0.82** (1×H100, 1.2 h).
 - Independent reproduction e3: 24k **0.824**, 48k **0.904** on 1×RTX 5090 with 4096/4096.
 - Observations, env/batch, hardware and evaluator implementations differ, so these
   numbers do not establish a strict ranking or the cause of remaining gaps.
-- Two 48k evaluations produced 0.8403 and 0.8379; three clips changed trajectories
-  or failure status. Single-seed results do not establish that 48k is best.
+- Three 48k evaluations produced 0.8403, 0.8379 and 0.8343 (4/5/6 failures);
+  three clips changed trajectories or failure status. Single-seed results do not
+  establish that 48k is best.
 
 Evaluation protocol: Appendix F; each clip is played from its first frame with
 the deterministic policy, no observation/action noise, no reset noise, no DR,
@@ -118,7 +119,7 @@ scripts and exact config are included.
 
 ## Honest limitations
 
-- Single training seed; no variance estimate across training seeds. Two 48k evaluation
+- Single training seed; no variance estimate across training seeds. Three 48k evaluation
   repeats differ slightly, so per-checkpoint rankings remain provisional.
 - 2048/2048 instead of the 5090 reference's 4096/4096; its causal effect is untested.
 - Anchor-relative observation deviates from the paper's Table A.1; the paper

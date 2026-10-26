@@ -1,0 +1,740 @@
+{
+ "summary": {
+  "clips": 40,
+  "failed": 5,
+  "mean_norm_return": 0.8378920109690983,
+  "step_weighted_norm_return": 0.8506401949311514,
+  "terms": {
+   "motion_global_root_pos": 0.008368121611758489,
+   "motion_global_root_ori": 0.009613247088462706,
+   "motion_body_pos": 0.01937920245184444,
+   "motion_body_ori": 0.016330515681840626,
+   "motion_body_lin_vel": 0.018393574172502005,
+   "motion_body_ang_vel": 0.017615827711949247,
+   "action_rate_l2": -0.0011265878952356298,
+   "joint_limit": -0.0001380848025687121
+  }
+ },
+ "clips": [
+  {
+   "name": "dance1_subject1",
+   "frames": 6574,
+   "steps": 5363,
+   "norm_return": 0.7269193787707524,
+   "failed": true,
+   "fail_step": 5363,
+   "terms": {
+    "motion_global_root_pos": 0.009001047424965112,
+    "motion_global_root_ori": 0.009734522733985321,
+    "motion_body_pos": 0.019540501156561012,
+    "motion_body_ori": 0.01721443348403922,
+    "motion_body_lin_vel": 0.018219469288447754,
+    "motion_body_ang_vel": 0.0171180823256937,
+    "action_rate_l2": -0.0016168590448206316,
+    "joint_limit": -0.00011844654348210881
+   }
+  },
+  {
+   "name": "dance1_subject2",
+   "frames": 6574,
+   "steps": 6573,
+   "norm_return": 0.8394692561841529,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.00899418851619403,
+    "motion_global_root_ori": 0.009716071078499105,
+    "motion_body_pos": 0.01948943632152841,
+    "motion_body_ori": 0.015598218770725767,
+    "motion_body_lin_vel": 0.017778317387492512,
+    "motion_body_ang_vel": 0.014759561088047815,
+    "action_rate_l2": -0.002316237402782037,
+    "joint_limit": -7.267867378061916e-05
+   }
+  },
+  {
+   "name": "dance1_subject3",
+   "frames": 6574,
+   "steps": 6573,
+   "norm_return": 0.9201326983968506,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.00923028827239512,
+    "motion_global_root_ori": 0.009799442497287078,
+    "motion_body_pos": 0.019638495631691674,
+    "motion_body_ori": 0.017155043559768657,
+    "motion_body_lin_vel": 0.01895856023034276,
+    "motion_body_ang_vel": 0.018112269670981788,
+    "action_rate_l2": -0.0008537166107377378,
+    "joint_limit": -2.7200919243728263e-05
+   }
+  },
+  {
+   "name": "dance2_subject1",
+   "frames": 11284,
+   "steps": 11283,
+   "norm_return": 0.8526710321598312,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.008619444891988707,
+    "motion_global_root_ori": 0.009577151975299538,
+    "motion_body_pos": 0.019426270937714648,
+    "motion_body_ori": 0.016226117581136998,
+    "motion_body_lin_vel": 0.017570879002322355,
+    "motion_body_ang_vel": 0.01589191859045065,
+    "action_rate_l2": -0.0019177693187223727,
+    "joint_limit": -0.00012684056472135944
+   }
+  },
+  {
+   "name": "dance2_subject2",
+   "frames": 11284,
+   "steps": 11283,
+   "norm_return": 0.8573323805725428,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.00882137196818153,
+    "motion_global_root_ori": 0.009708252061314588,
+    "motion_body_pos": 0.01944603176602106,
+    "motion_body_ori": 0.0156784821706155,
+    "motion_body_lin_vel": 0.01801371521574908,
+    "motion_body_ang_vel": 0.0158571058856694,
+    "action_rate_l2": -0.0017151089199762294,
+    "joint_limit": -7.6816979636223e-05
+   }
+  },
+  {
+   "name": "dance2_subject3",
+   "frames": 11284,
+   "steps": 11283,
+   "norm_return": 0.9231025623448994,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.009352002680159033,
+    "motion_global_root_ori": 0.009818069226752567,
+    "motion_body_pos": 0.01961671301292251,
+    "motion_body_ori": 0.0172918228924322,
+    "motion_body_lin_vel": 0.019051284472232147,
+    "motion_body_ang_vel": 0.018124857027459036,
+    "action_rate_l2": -0.0009145860098085113,
+    "joint_limit": -3.0071747743585776e-05
+   }
+  },
+  {
+   "name": "dance2_subject4",
+   "frames": 11284,
+   "steps": 11283,
+   "norm_return": 0.8730679070559692,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.009287514923671813,
+    "motion_global_root_ori": 0.00970525994301265,
+    "motion_body_pos": 0.019445262267574145,
+    "motion_body_ori": 0.01621526210831907,
+    "motion_body_lin_vel": 0.018136930985515404,
+    "motion_body_ang_vel": 0.01628502140249712,
+    "action_rate_l2": -0.0017063232492198232,
+    "joint_limit": -6.167477436398695e-05
+   }
+  },
+  {
+   "name": "dance2_subject5",
+   "frames": 11284,
+   "steps": 11283,
+   "norm_return": 0.9139155352632279,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.009111554701045337,
+    "motion_global_root_ori": 0.00980953780152871,
+    "motion_body_pos": 0.019638430720407638,
+    "motion_body_ori": 0.01739316948928975,
+    "motion_body_lin_vel": 0.018717020567792807,
+    "motion_body_ang_vel": 0.017838599548096416,
+    "action_rate_l2": -0.001071696478794581,
+    "joint_limit": -4.495191286718086e-05
+   }
+  },
+  {
+   "name": "fallAndGetUp1_subject1",
+   "frames": 8411,
+   "steps": 1734,
+   "norm_return": 0.1561920855473395,
+   "failed": true,
+   "fail_step": 1734,
+   "terms": {
+    "motion_global_root_pos": 0.007613378412583295,
+    "motion_global_root_ori": 0.008531135946271603,
+    "motion_body_pos": 0.018083890279134113,
+    "motion_body_ori": 0.011468838930404998,
+    "motion_body_lin_vel": 0.01667602059475416,
+    "motion_body_ang_vel": 0.014824485558814519,
+    "action_rate_l2": -0.0011856465191164643,
+    "joint_limit": -0.00025792560844135393
+   }
+  },
+  {
+   "name": "fallAndGetUp1_subject4",
+   "frames": 8411,
+   "steps": 8410,
+   "norm_return": 0.7355198627703255,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.006077908165531408,
+    "motion_global_root_ori": 0.008101029004835204,
+    "motion_body_pos": 0.01844968852475197,
+    "motion_body_ori": 0.009531547736894786,
+    "motion_body_lin_vel": 0.017166680189715556,
+    "motion_body_ang_vel": 0.015827568135845533,
+    "action_rate_l2": -0.0011369884368497324,
+    "joint_limit": -0.00046533049924762015
+   }
+  },
+  {
+   "name": "fallAndGetUp1_subject5",
+   "frames": 8411,
+   "steps": 2574,
+   "norm_return": 0.2262155031619259,
+   "failed": true,
+   "fail_step": 2574,
+   "terms": {
+    "motion_global_root_pos": 0.0063001592676122705,
+    "motion_global_root_ori": 0.008381500481262445,
+    "motion_body_pos": 0.018499798244900174,
+    "motion_body_ori": 0.012143307725125353,
+    "motion_body_lin_vel": 0.016552985131323753,
+    "motion_body_ang_vel": 0.014813776616449956,
+    "action_rate_l2": -0.002105385366112295,
+    "joint_limit": -0.0006750236209641155
+   }
+  },
+  {
+   "name": "fallAndGetUp2_subject2",
+   "frames": 8196,
+   "steps": 8195,
+   "norm_return": 0.7409504860766855,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.0063228344175421365,
+    "motion_global_root_ori": 0.008136850279085952,
+    "motion_body_pos": 0.018471910198553806,
+    "motion_body_ori": 0.010504716427461485,
+    "motion_body_lin_vel": 0.017307382505648453,
+    "motion_body_ang_vel": 0.015899814608040345,
+    "action_rate_l2": -0.0014183028141415068,
+    "joint_limit": -0.0011302298638353704
+   }
+  },
+  {
+   "name": "fallAndGetUp2_subject3",
+   "frames": 8196,
+   "steps": 8195,
+   "norm_return": 0.7577547791383847,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.006635549753595228,
+    "motion_global_root_ori": 0.008133105870934068,
+    "motion_body_pos": 0.017987868638937615,
+    "motion_body_ori": 0.009528780478104503,
+    "motion_body_lin_vel": 0.0178910651681189,
+    "motion_body_ang_vel": 0.016725222929139336,
+    "action_rate_l2": -0.0006835647150101351,
+    "joint_limit": -0.00044256624032114247
+   }
+  },
+  {
+   "name": "fallAndGetUp3_subject1",
+   "frames": 5109,
+   "steps": 5108,
+   "norm_return": 0.8522245784989538,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.008344806351508586,
+    "motion_global_root_ori": 0.009218699874220738,
+    "motion_body_pos": 0.01917760486050145,
+    "motion_body_ori": 0.015189164116126816,
+    "motion_body_lin_vel": 0.017741992684575665,
+    "motion_body_ang_vel": 0.016849574579703406,
+    "action_rate_l2": -0.001068308471046394,
+    "joint_limit": -0.00023100039131863562
+   }
+  },
+  {
+   "name": "fight1_subject2",
+   "frames": 12244,
+   "steps": 12243,
+   "norm_return": 0.8613110951793883,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.008418636482486166,
+    "motion_global_root_ori": 0.009668462545003394,
+    "motion_body_pos": 0.01931092295685226,
+    "motion_body_ori": 0.016015484414244364,
+    "motion_body_lin_vel": 0.0176661630904841,
+    "motion_body_ang_vel": 0.016656363525490332,
+    "action_rate_l2": -0.0015038932196447237,
+    "joint_limit": -0.00010107860138318336
+   }
+  },
+  {
+   "name": "fight1_subject3",
+   "frames": 12244,
+   "steps": 12243,
+   "norm_return": 0.8863207028697522,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.008849472622948126,
+    "motion_global_root_ori": 0.009677658573354097,
+    "motion_body_pos": 0.019327457985398543,
+    "motion_body_ori": 0.01653216947072434,
+    "motion_body_lin_vel": 0.018212482078805874,
+    "motion_body_ang_vel": 0.017358833655105214,
+    "action_rate_l2": -0.0012335331331112995,
+    "joint_limit": -9.26486945158125e-05
+   }
+  },
+  {
+   "name": "fight1_subject5",
+   "frames": 12244,
+   "steps": 12243,
+   "norm_return": 0.9089150273370498,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.009198705462432614,
+    "motion_global_root_ori": 0.00981052644519764,
+    "motion_body_pos": 0.019450080421034598,
+    "motion_body_ori": 0.017080695705262702,
+    "motion_body_lin_vel": 0.018491254409407416,
+    "motion_body_ang_vel": 0.017908555117832,
+    "action_rate_l2": -0.0009832365065143651,
+    "joint_limit": -6.499880914018989e-05
+   }
+  },
+  {
+   "name": "fightAndSports1_subject1",
+   "frames": 12257,
+   "steps": 12256,
+   "norm_return": 0.8750293024526251,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.008520407091544129,
+    "motion_global_root_ori": 0.009700054288221713,
+    "motion_body_pos": 0.019198721444949156,
+    "motion_body_ori": 0.016267436602719457,
+    "motion_body_lin_vel": 0.018109266813990343,
+    "motion_body_ang_vel": 0.017201479670273107,
+    "action_rate_l2": -0.0013348240765205562,
+    "joint_limit": -0.00015990815414772331
+   }
+  },
+  {
+   "name": "fightAndSports1_subject4",
+   "frames": 12257,
+   "steps": 12256,
+   "norm_return": 0.8807465675294243,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.008843504728909884,
+    "motion_global_root_ori": 0.009684222796567115,
+    "motion_body_pos": 0.019347210777023754,
+    "motion_body_ori": 0.0157346825064318,
+    "motion_body_lin_vel": 0.01828263135865214,
+    "motion_body_ang_vel": 0.0174447662214075,
+    "action_rate_l2": -0.001139334925783521,
+    "joint_limit": -0.00012312026076777486
+   }
+  },
+  {
+   "name": "jumps1_subject1",
+   "frames": 12222,
+   "steps": 12221,
+   "norm_return": 0.8877679094258857,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.008085465764816006,
+    "motion_global_root_ori": 0.009782805964478728,
+    "motion_body_pos": 0.019475376437235344,
+    "motion_body_ori": 0.017418797321848662,
+    "motion_body_lin_vel": 0.01795204461630467,
+    "motion_body_ang_vel": 0.017445245806318913,
+    "action_rate_l2": -0.0013209295276728934,
+    "joint_limit": -6.214476540829797e-05
+   }
+  },
+  {
+   "name": "jumps1_subject2",
+   "frames": 12222,
+   "steps": 10569,
+   "norm_return": 0.7418374505685653,
+   "failed": true,
+   "fail_step": 10569,
+   "terms": {
+    "motion_global_root_pos": 0.00811594041702887,
+    "motion_global_root_ori": 0.0092468131782993,
+    "motion_body_pos": 0.01881755331131286,
+    "motion_body_ori": 0.015200907013952951,
+    "motion_body_lin_vel": 0.018257131729032133,
+    "motion_body_ang_vel": 0.017414608068481528,
+    "action_rate_l2": -0.0009954830411141682,
+    "joint_limit": -0.0002782760341838108
+   }
+  },
+  {
+   "name": "jumps1_subject5",
+   "frames": 12222,
+   "steps": 12221,
+   "norm_return": 0.8826145065678442,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.008189571634387337,
+    "motion_global_root_ori": 0.00980631593654749,
+    "motion_body_pos": 0.019196524283332097,
+    "motion_body_ori": 0.01615919371145211,
+    "motion_body_lin_vel": 0.018326858209613574,
+    "motion_body_ang_vel": 0.01780148315679402,
+    "action_rate_l2": -0.0011209187945799863,
+    "joint_limit": -9.778255858755709e-05
+   }
+  },
+  {
+   "name": "run1_subject2",
+   "frames": 11891,
+   "steps": 11890,
+   "norm_return": 0.8796825104144764,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.007781659664478094,
+    "motion_global_root_ori": 0.00979614001146578,
+    "motion_body_pos": 0.019480623930216438,
+    "motion_body_ori": 0.017036309655320252,
+    "motion_body_lin_vel": 0.018174438219896578,
+    "motion_body_ang_vel": 0.01741188633231379,
+    "action_rate_l2": -0.001597942355503246,
+    "joint_limit": -0.00011491917882073918
+   }
+  },
+  {
+   "name": "run1_subject5",
+   "frames": 11891,
+   "steps": 11890,
+   "norm_return": 0.849677237469775,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.007188571451891361,
+    "motion_global_root_ori": 0.009689794978341503,
+    "motion_body_pos": 0.01934743741663491,
+    "motion_body_ori": 0.01647649817951995,
+    "motion_body_lin_vel": 0.017457771782518134,
+    "motion_body_ang_vel": 0.016843104382539817,
+    "action_rate_l2": -0.001800828264780261,
+    "joint_limit": -0.00023479469690731937
+   }
+  },
+  {
+   "name": "run2_subject1",
+   "frames": 12241,
+   "steps": 12240,
+   "norm_return": 0.8613671196831597,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.0072024825351690155,
+    "motion_global_root_ori": 0.009724532233344184,
+    "motion_body_pos": 0.01946535297468597,
+    "motion_body_ori": 0.01704900404986213,
+    "motion_body_lin_vel": 0.017702632480197482,
+    "motion_body_ang_vel": 0.016891023224475336,
+    "action_rate_l2": -0.001752945956061868,
+    "joint_limit": -0.0001454836597629622
+   }
+  },
+  {
+   "name": "run2_subject4",
+   "frames": 12241,
+   "steps": 12240,
+   "norm_return": 0.8501932979409211,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.00703378876829459,
+    "motion_global_root_ori": 0.009711756114087073,
+    "motion_body_pos": 0.01940380295896842,
+    "motion_body_ori": 0.016554351258122064,
+    "motion_body_lin_vel": 0.017753748176923764,
+    "motion_body_ang_vel": 0.016695233264000586,
+    "action_rate_l2": -0.0020036363913342845,
+    "joint_limit": -0.0001298045216043011
+   }
+  },
+  {
+   "name": "sprint1_subject2",
+   "frames": 13656,
+   "steps": 13655,
+   "norm_return": 0.8750405858087696,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.007370456065593819,
+    "motion_global_root_ori": 0.00972927991656845,
+    "motion_body_pos": 0.019453068680485627,
+    "motion_body_ori": 0.01686284258356028,
+    "motion_body_lin_vel": 0.0180216098870606,
+    "motion_body_ang_vel": 0.017601190299526843,
+    "action_rate_l2": -0.00145794069841204,
+    "joint_limit": -7.626758046047193e-05
+   }
+  },
+  {
+   "name": "sprint1_subject4",
+   "frames": 13656,
+   "steps": 13655,
+   "norm_return": 0.8344331431938851,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.005668301549162109,
+    "motion_global_root_ori": 0.009751252349328313,
+    "motion_body_pos": 0.019408236559124405,
+    "motion_body_ori": 0.015942417453471143,
+    "motion_body_lin_vel": 0.017450774733027623,
+    "motion_body_ang_vel": 0.017195289748704115,
+    "action_rate_l2": -0.001879682369783919,
+    "joint_limit": -9.329859392409881e-05
+   }
+  },
+  {
+   "name": "walk1_subject1",
+   "frames": 13066,
+   "steps": 13065,
+   "norm_return": 0.9444740315848641,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.009043071409591166,
+    "motion_global_root_ori": 0.009853257048964911,
+    "motion_body_pos": 0.01970023539528918,
+    "motion_body_ori": 0.017640045434635716,
+    "motion_body_lin_vel": 0.01935413475927155,
+    "motion_body_ang_vel": 0.019225423690965245,
+    "action_rate_l2": -0.00035619005771874926,
+    "joint_limit": -1.2610099391375197e-05
+   }
+  },
+  {
+   "name": "walk1_subject2",
+   "frames": 13066,
+   "steps": 13065,
+   "norm_return": 0.9448935460916571,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.009456099325151585,
+    "motion_global_root_ori": 0.00987221578779779,
+    "motion_body_pos": 0.01969862133891839,
+    "motion_body_ori": 0.01798393170677562,
+    "motion_body_lin_vel": 0.019260512482285087,
+    "motion_body_ang_vel": 0.01888201626333477,
+    "action_rate_l2": -0.0006316139375939937,
+    "joint_limit": -3.235013467618619e-05
+   }
+  },
+  {
+   "name": "walk1_subject5",
+   "frames": 13066,
+   "steps": 13065,
+   "norm_return": 0.9378462629759855,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.009514948731403081,
+    "motion_global_root_ori": 0.009839649689503205,
+    "motion_body_pos": 0.019638314960653463,
+    "motion_body_ori": 0.01782025447806042,
+    "motion_body_lin_vel": 0.019025847139004497,
+    "motion_body_ang_vel": 0.01876349874351201,
+    "action_rate_l2": -0.0006530117176521613,
+    "joint_limit": -0.00016489145722007825
+   }
+  },
+  {
+   "name": "walk2_subject1",
+   "frames": 11909,
+   "steps": 11908,
+   "norm_return": 0.920072381913682,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.008890768326005561,
+    "motion_global_root_ori": 0.009767049264699611,
+    "motion_body_pos": 0.019657111944750248,
+    "motion_body_ori": 0.017333979249441026,
+    "motion_body_lin_vel": 0.018962992090565428,
+    "motion_body_ang_vel": 0.01826062136782389,
+    "action_rate_l2": -0.0007856301425245731,
+    "joint_limit": -7.951996412139472e-05
+   }
+  },
+  {
+   "name": "walk2_subject3",
+   "frames": 11909,
+   "steps": 11908,
+   "norm_return": 0.9234325958651747,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.008760761726130805,
+    "motion_global_root_ori": 0.009733621650467714,
+    "motion_body_pos": 0.019575674501008382,
+    "motion_body_ori": 0.01716709104928147,
+    "motion_body_lin_vel": 0.019099776601487053,
+    "motion_body_ang_vel": 0.018712078039382664,
+    "action_rate_l2": -0.0005823140741796112,
+    "joint_limit": -0.00012354136794695406
+   }
+  },
+  {
+   "name": "walk2_subject4",
+   "frames": 11909,
+   "steps": 11908,
+   "norm_return": 0.9390739566494164,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.009227117116234229,
+    "motion_global_root_ori": 0.009857417354256985,
+    "motion_body_pos": 0.01964145976903657,
+    "motion_body_ori": 0.017707829832590224,
+    "motion_body_lin_vel": 0.019153532182605706,
+    "motion_body_ang_vel": 0.01886116517322913,
+    "action_rate_l2": -0.0005195462387361741,
+    "joint_limit": -2.1298904926695997e-05
+   }
+  },
+  {
+   "name": "walk3_subject1",
+   "frames": 12331,
+   "steps": 12330,
+   "norm_return": 0.9317116099262469,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.009001551347347361,
+    "motion_global_root_ori": 0.00977184422501489,
+    "motion_body_pos": 0.019587145679285153,
+    "motion_body_ori": 0.017349274102402043,
+    "motion_body_lin_vel": 0.01918196109669632,
+    "motion_body_ang_vel": 0.018813448346734336,
+    "action_rate_l2": -0.0004998327751809373,
+    "joint_limit": -3.419109987999884e-05
+   }
+  },
+  {
+   "name": "walk3_subject2",
+   "frames": 12331,
+   "steps": 12330,
+   "norm_return": 0.9489394634212794,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.00948095824403291,
+    "motion_global_root_ori": 0.00988136099686201,
+    "motion_body_pos": 0.01971622661952555,
+    "motion_body_ori": 0.017932045991500025,
+    "motion_body_lin_vel": 0.01936835592970651,
+    "motion_body_ang_vel": 0.01905874730316682,
+    "action_rate_l2": -0.0005064294479382493,
+    "joint_limit": -3.74317290042342e-05
+   }
+  },
+  {
+   "name": "walk3_subject3",
+   "frames": 12331,
+   "steps": 12330,
+   "norm_return": 0.8516289308026662,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.006597876877486948,
+    "motion_global_root_ori": 0.009169502598622516,
+    "motion_body_pos": 0.018614179451873606,
+    "motion_body_ori": 0.014655633757777651,
+    "motion_body_lin_vel": 0.018667633477402044,
+    "motion_body_ang_vel": 0.01828958924379372,
+    "action_rate_l2": -0.0006928045577569793,
+    "joint_limit": -0.00013887107807354336
+   }
+  },
+  {
+   "name": "walk3_subject4",
+   "frames": 12331,
+   "steps": 10886,
+   "norm_return": 0.823286639706255,
+   "failed": true,
+   "fail_step": 10886,
+   "terms": {
+    "motion_global_root_pos": 0.009515165559907795,
+    "motion_global_root_ori": 0.009577132138657522,
+    "motion_body_pos": 0.019561889525088846,
+    "motion_body_ori": 0.01663934783683243,
+    "motion_body_lin_vel": 0.01937855978606051,
+    "motion_body_ang_vel": 0.018996736833809622,
+    "action_rate_l2": -0.00037855986350383825,
+    "joint_limit": -4.1208502870917476e-05
+   }
+  },
+  {
+   "name": "walk3_subject5",
+   "frames": 12331,
+   "steps": 12330,
+   "norm_return": 0.9390957253016018,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.009363593034210577,
+    "motion_global_root_ori": 0.009800237576746883,
+    "motion_body_pos": 0.01974975511685485,
+    "motion_body_ori": 0.01773810591624214,
+    "motion_body_lin_vel": 0.019125231319777093,
+    "motion_body_ang_vel": 0.01890443924086324,
+    "action_rate_l2": -0.0004983430941319524,
+    "joint_limit": -0.0002735351220631348
+   }
+  },
+  {
+   "name": "walk4_subject1",
+   "frames": 8196,
+   "steps": 8195,
+   "norm_return": 0.9608207921417404,
+   "failed": false,
+   "fail_step": -1,
+   "terms": {
+    "motion_global_root_pos": 0.009391655261520936,
+    "motion_global_root_ori": 0.009904162515729866,
+    "motion_body_pos": 0.01980699745164258,
+    "motion_body_ori": 0.01826731208768685,
+    "motion_body_lin_vel": 0.01963805221362111,
+    "motion_body_ang_vel": 0.01942267147341176,
+    "action_rate_l2": -0.0003388684140683093,
+    "joint_limit": -1.0085975963797345e-05
+   }
+  }
+ ]
+}
