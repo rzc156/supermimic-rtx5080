@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SuperMimic · RTX 5080 16GB reproduction</title>
+<style>
+  :root { color-scheme: dark; --bg:#0e1116; --panel:#161b23; --line:#252c38; --text:#e8ecf3; --muted:#9aa6b8; --accent:#6ea8fe; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; line-height:1.55; }
+  main { max-width: 1040px; margin: 0 auto; padding: 42px 22px 60px; }
+  h1 { font-size: 30px; letter-spacing:-0.02em; margin: 0 0 8px; }
+  h2 { font-size: 17px; margin: 30px 0 10px; color:#cfd8e8; }
+  .sub { color:var(--muted); font-size:14px; }
+  .hero { display:grid; grid-template-columns: 1.1fr 1fr; gap:22px; align-items:start; margin-top:22px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px; }
+  .big { font-size: 42px; font-weight:700; letter-spacing:-0.03em; color:#fff; }
+  .big small { font-size:15px; font-weight:500; color:var(--muted); }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; }
+  th,td { padding:7px 8px; border-bottom:1px solid var(--line); text-align:right; }
+  th:first-child, td:first-child { text-align:left; }
+  th { color:var(--muted); font-weight:500; }
+  tr.best td { color:#fff; font-weight:600; }
+  code { background:#0b0e13; border:1px solid var(--line); padding:1px 6px; border-radius:6px; font-size:12.5px; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  video { width:100%; border-radius:10px; background:#000; display:block; }
+  .links { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+  .links a { background:#1b2330; border:1px solid var(--line); padding:8px 12px; border-radius:9px; font-size:13px; }
+  .note { color:var(--muted); font-size:13px; margin-top:14px; }
+  @media (max-width: 820px) { .hero { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>SuperMimic · RTX 5080 16GB reproduction</h1>
+  <div class="sub">LAFAN1 40 clips · 2048 envs / batch 2048 · 3.3 h · anchor-relative observations</div>
+
+  <div class="hero">
+    <div class="card">
+      <div class="big">0.874 <small>mean normalized return</small></div>
+      <div class="sub">48k checkpoint · 0.8837 step-weighted · 3/40 failed clips</div>
+      <table>
+        <tr><th>checkpoint</th><th>time</th><th>mean</th><th>step-weighted</th><th>failed</th></tr>
+        <tr><td>24k</td><td>1.6 h</td><td>0.7969</td><td>0.8062</td><td>9/40</td></tr>
+        <tr><td>40k</td><td>2.7 h</td><td>0.8684</td><td>0.8788</td><td>3/40</td></tr>
+        <tr><td>44k</td><td>3.0 h</td><td>0.8693</td><td>0.8744</td><td>3/40</td></tr>
+        <tr class="best"><td>48k</td><td>3.3 h</td><td>0.8743</td><td>0.8837</td><td>3/40</td></tr>
+      </table>
+      <div class="note">
+        Paper Fig. 4a: 0.82 (1×H100, 1.2 h). Independent 5090 e3: 24k 0.824, 48k 0.904.
+        This run is +5.4pp vs paper, -3.0pp vs the 5090 run (half the batch/env).
+      </div>
+    </div>
+
+    <div class="card">
+      <video controls autoplay muted loop playsinline src="results/lafan1_anchor/videos/walk1_subject1.mp4"></video>
+      <div class="note">White: policy. Translucent blue: reference ghost. <a href="results/lafan1_anchor/videos/index.html">walk + dance side by side</a>.</div>
+    </div>
+  </div>
+
+  <h2>Important caveat</h2>
+  <div class="card note">
+    This run uses <b>anchor-relative observations</b> (93-dim proprio + 9-dim anchor pose).
+    The paper's Table A.1 lists only the 93-dim proprio observation. The independent
+    reproduction found that the paper's observation alone drifts on 220 s LAFAN1 clips
+    and saturates around <b>0.556–0.582</b>; the 0.82 requires anchor-relative pose or a
+    different evaluation protocol. Details in
+    <a href="https://github.com/rzc156/supermimic-rtx5080/blob/main/REPRODUCTION_ANALYSIS.md">REPRODUCTION_ANALYSIS.md</a>.
+  </div>
+
+  <h2>Links</h2>
+  <div class="links">
+    <a href="https://github.com/rzc156/supermimic-rtx5080">GitHub repository</a>
+    <a href="https://github.com/rzc156/supermimic-rtx5080/blob/main/REPRODUCTION.md">Reproduction report</a>
+    <a href="https://github.com/rzc156/supermimic-rtx5080/tree/main/results/lafan1_anchor">Results folder</a>
+    <a href="results/lafan1_anchor/training_curve.png">Training curve</a>
+    <a href="https://arxiv.org/abs/2610.28480">SuperMimic paper</a>
+  </div>
+
+  <h2>Reproduce</h2>
+  <div class="card note">
+    <code>bash scripts/run_lafan1.sh lafan1_anchor 1 2048 2048 3.3 320000</code><br>
+    <code>bash scripts/eval_iterations.sh lafan1_anchor 24000 40000 44000 48000</code><br>
+    See <a href="https://github.com/rzc156/supermimic-rtx5080#rtx-5080-16gb-复现结果本仓库">README</a> for data conversion and environment.
+  </div>
+
+  <div class="note" style="margin-top:26px">
+    Adapted from <a href="https://github.com/CuboiLeo/SuperMimic-Reproduced">CuboiLeo/SuperMimic-Reproduced</a>
+    (MIT, Copyright (c) 2026 Yuxi Liu). SuperMimic paper by Liao et al., CoRL 2026; no official code released.
+  </div>
+</main>
+</body>
+</html>
