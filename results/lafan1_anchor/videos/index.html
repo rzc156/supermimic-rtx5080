@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>SuperMimic · LAFAN1 48k</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; padding: 24px; background: #0f1115; color: #e6e8ee;
+         font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  h1 { font-size: 20px; margin: 0 0 6px; }
+  .sub { color: #9aa3b2; font-size: 13px; margin-bottom: 20px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .card { background: #171a21; border: 1px solid #262b36; border-radius: 12px; overflow: hidden; }
+  .card h2 { font-size: 14px; font-weight: 600; margin: 0; padding: 12px 14px; color: #cfd6e4; }
+  video { display: block; width: 100%; height: auto; background: #000; }
+  .note { color: #8b94a3; font-size: 12px; margin-top: 16px; line-height: 1.6; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+  <h1>SuperMimic · LAFAN1 40 clips · 48k checkpoint</h1>
+  <div class="sub">1×RTX 5080 16GB · 2048 envs / batch 2048 · 3.3 h · mean 0.874 / step-weighted 0.884 · 3/40 failures</div>
+  <div class="grid">
+    <div class="card">
+      <h2>walk1_subject1 · 800 steps (16 s)</h2>
+      <video controls autoplay muted loop playsinline src="walk1_subject1.mp4"></video>
+    </div>
+    <div class="card">
+      <h2>dance1_subject1 · 600 steps (12 s)</h2>
+      <video controls autoplay muted loop playsinline src="dance1_subject1.mp4"></video>
+    </div>
+  </div>
+  <div class="note">
+    白色：策略；蓝色半透明：参考动作 ghost。评测协议：每条 clip 从首帧整条确定性播放，
+    无观测噪声、无 reset noise、无域随机化，足底摩擦 1.0。
+  </div>
+</body>
+</html>

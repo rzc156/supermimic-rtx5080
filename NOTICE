@@ -1,0 +1,19 @@
+This repository is an adaptation of:
+
+  CuboiLeo/SuperMimic-Reproduced
+  MIT License, Copyright (c) 2026 Yuxi Liu
+  https://github.com/CuboiLeo/SuperMimic-Reproduced
+
+which is an independent reproduction of:
+
+  Liao et al., "SuperMimic: Scaling Humanoid Whole-Body Control with One
+  Differentiable World Model", CoRL 2026, arXiv:2610.28480.
+
+Additions in this repository (2026-10-26, rzc156):
+  - RTX 5080 16GB training configuration and results
+  - scripts/run_lafan1.sh, eval_lafan1.sh, eval_iterations.sh, record_video.py, export_tb.py
+  - REPRODUCTION.md, REPRODUCTION_ANALYSIS.md, results/
+  - results/lafan1_anchor/* (benchmark JSON, CSV, curves, videos)
+
+The SuperMimic paper, name, and any official assets belong to the original
+authors. No official code was released by the paper authors.
