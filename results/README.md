@@ -1,5 +1,7 @@
 # SuperMimic · LAFAN1 40 clips · RTX 5080 16GB
 
+**Live page:** <https://rzc156.github.io/supermimic-rtx5080/>
+
 This directory contains the released results of an independent SuperMimic
 reproduction on a **single RTX 5080 16GB**, trained for **3.3 h** with
 **2048 envs / batch 2048** and anchor-relative observations.
