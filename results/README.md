@@ -67,22 +67,32 @@ results/lafan1_anchor/
 ├── benchmark_ckpt_*.json           # legacy biased-denominator results; not for comparison
 ├── training_curve.png              # train return, imagination survival, WM error
 ├── training_metrics.csv            # raw TensorBoard scalars
-├── gifs/                           # 6 demo GIFs (walk/run/sprint/jump/dance x2)
-└── videos/
-    ├── walk1_subject1.mp4          # 800 steps / 16 s
-    ├── dance1_subject1.mp4         # 600 steps / 12 s
-    ├── walk_sheet.png              # 4-frame contact sheet
-    ├── dance_sheet.png
-    ├── run1_subject5.mp4
-    ├── sprint1_subject4.mp4
-    ├── jumps1_subject2.mp4
-    ├── dance2_subject1.mp4
-    └── index.html                  # side-by-side video page
+├── gifs/                           # 6 demo GIFs, 15 s excerpts at 384 px / 12 fps
+│   ├── walk1.gif                   # walk1_subject1
+│   ├── sprint1.gif                 # sprint1_subject2
+│   ├── dance2.gif                  # dance2_subject3
+│   ├── fight1.gif                  # fight1_subject5
+│   ├── fight_sports.gif            # fightAndSports1_subject4
+│   ├── fall_getup.gif              # fallAndGetUp3_subject1
+│   └── index.html                  # GIF gallery
+└── videos/                         # full 30-40 s rollouts, 960x540, 50 fps
+    ├── walk1_subject1.mp4
+    ├── sprint1_subject2.mp4
+    ├── run1_subject2.mp4
+    ├── dance2_subject3.mp4
+    ├── fight1_subject5.mp4
+    ├── fightAndSports1_subject4.mp4
+    ├── fallAndGetUp3_subject1.mp4
+    └── index.html                  # full-video page
 
 Demo GIF gallery: https://rzc156.github.io/supermimic-rtx5080/results/lafan1_anchor/gifs/index.html
+Full videos:      https://rzc156.github.io/supermimic-rtx5080/results/lafan1_anchor/videos/index.html
 ```
 
-White = policy, translucent blue = reference ghost.
+Both galleries were recorded with the **40k** checkpoint (best single evaluation:
+mean 0.8515, 2/40 failures), not the 48k checkpoint. The videos start at an
+offset inside each long LAFAN1 clip to show the characteristic motion; this is a
+demo choice, not the benchmark protocol, which always plays a clip from frame 0.
 
 ---
 

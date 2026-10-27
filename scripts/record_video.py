@@ -27,6 +27,13 @@ def main() -> None:
     ap.add_argument("--clip", default="walk1_subject1")
     ap.add_argument("--npz-dir", default="data/npz/lafan1")
     ap.add_argument("--steps", type=int, default=600)
+    ap.add_argument("--start-sec", type=float, default=0.0, help="start the clip at this time offset")
+    ap.add_argument("--width", type=int, default=1280)
+    ap.add_argument("--height", type=int, default=720)
+    ap.add_argument("--distance", type=float, default=2.8)
+    ap.add_argument("--elevation", type=float, default=-5.0)
+    ap.add_argument("--azimuth", type=float, default=120.0)
+    ap.add_argument("--no-ghost", action="store_true", help="do not draw the translucent reference ghost")
     ap.add_argument("--out", default=None)
     ap.add_argument("--device", default="cuda:0")
     args = ap.parse_args()
@@ -49,11 +56,23 @@ def main() -> None:
         record_transitions=False,
         seed=0,
         anchor_obs=cfg["env"].get("anchor_obs", False),
-        debug_vis=True,
+        debug_vis=not args.no_ghost,
     )
-    env = ManagerBasedRlEnv(
-        make_env_cfg(env_args), device=args.device, render_mode="rgb_array"
-    )
+    cfg_env = make_env_cfg(env_args)
+    cfg_env.viewer.width = args.width
+    cfg_env.viewer.height = args.height
+    cfg_env.viewer.distance = args.distance
+    cfg_env.viewer.elevation = args.elevation
+    cfg_env.viewer.azimuth = args.azimuth
+    env = ManagerBasedRlEnv(cfg_env, device=args.device, render_mode="rgb_array")
+
+    cmd = env.command_manager.get_term("motion")
+    clip = cmd.library.clips[0]
+    fps = 50.0
+    start_frame = clip.start + int(round(args.start_sec * fps))
+    start_frame = min(start_frame, clip.start + clip.length - 2)
+    cmd.forced_frame[0] = start_frame
+    print(f"clip {clip.name}: {clip.length / fps:.1f} s, start {args.start_sec:.1f} s (frame {start_frame})")
 
     out = Path(args.out) if args.out else Path(args.ckpt).parent / "videos" / f"{args.clip}.mp4"
     out.parent.mkdir(parents=True, exist_ok=True)

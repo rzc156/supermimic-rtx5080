@@ -1,38 +1,46 @@
 <!doctype html>
-<html lang="zh">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>SuperMimic · LAFAN1 48k</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SuperMimic · LAFAN1 full videos · 40k</title>
 <style>
-  :root { color-scheme: dark; }
-  body { margin: 0; padding: 24px; background: #0f1115; color: #e6e8ee;
-         font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
-  h1 { font-size: 20px; margin: 0 0 6px; }
-  .sub { color: #9aa3b2; font-size: 13px; margin-bottom: 20px; }
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .card { background: #171a21; border: 1px solid #262b36; border-radius: 12px; overflow: hidden; }
-  .card h2 { font-size: 14px; font-weight: 600; margin: 0; padding: 12px 14px; color: #cfd6e4; }
-  video { display: block; width: 100%; height: auto; background: #000; }
-  .note { color: #8b94a3; font-size: 12px; margin-top: 16px; line-height: 1.6; }
-  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  :root { color-scheme: dark; --bg:#0e1116; --panel:#161b23; --line:#252c38; --text:#e8ecf3; --muted:#9aa6b8; --accent:#6ea8fe; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.5; }
+  main { max-width:1100px; margin:0 auto; padding:38px 20px 64px; }
+  h1 { font-size:26px; letter-spacing:-0.02em; margin:0 0 6px; }
+  .sub { color:var(--muted); font-size:13.5px; margin-bottom:22px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .card h2 { font-size:13.5px; font-weight:600; margin:0; padding:11px 14px; color:#cfd6e4; display:flex; justify-content:space-between; }
+  .card h2 span { color:var(--muted); font-weight:400; font-variant-numeric:tabular-nums; }
+  video { display:block; width:100%; height:auto; background:#000; }
+  .note { color:var(--muted); font-size:12.5px; margin-top:18px; line-height:1.65; }
+  a { color:var(--accent); text-decoration:none; }
+  @media (max-width:820px){ .grid{grid-template-columns:1fr;} }
 </style>
 </head>
 <body>
-  <h1>SuperMimic · LAFAN1 40 clips · 48k checkpoint</h1>
-  <div class="sub">1×RTX 5080 16GB · 2048 envs / batch 2048 · 3.3 h · mean 0.874 / step-weighted 0.884 · 3/40 failures</div>
+<main>
+  <h1>SuperMimic · LAFAN1 full demo videos</h1>
+  <div class="sub">40k checkpoint (mean 0.8515, 2/40 failed clips) · 960×540 · 50 fps · continuous 30–40 s rollouts</div>
   <div class="grid">
-    <div class="card">
-      <h2>walk1_subject1 · 800 steps (16 s)</h2>
-      <video controls autoplay muted loop playsinline src="walk1_subject1.mp4"></video>
-    </div>
-    <div class="card">
-      <h2>dance1_subject1 · 600 steps (12 s)</h2>
-      <video controls autoplay muted loop playsinline src="dance1_subject1.mp4"></video>
-    </div>
+    <div class="card"><h2>walk1_subject1 <span>40 s</span></h2><video controls autoplay muted loop playsinline src="walk1_subject1.mp4"></video></div>
+    <div class="card"><h2>sprint1_subject2 <span>40 s</span></h2><video controls autoplay muted loop playsinline src="sprint1_subject2.mp4"></video></div>
+    <div class="card"><h2>run1_subject2 <span>30 s</span></h2><video controls autoplay muted loop playsinline src="run1_subject2.mp4"></video></div>
+    <div class="card"><h2>dance2_subject3 <span>33 s</span></h2><video controls autoplay muted loop playsinline src="dance2_subject3.mp4"></video></div>
+    <div class="card"><h2>fight1_subject5 <span>30 s</span></h2><video controls autoplay muted loop playsinline src="fight1_subject5.mp4"></video></div>
+    <div class="card"><h2>fightAndSports1_subject4 <span>30 s</span></h2><video controls autoplay muted loop playsinline src="fightAndSports1_subject4.mp4"></video></div>
+    <div class="card"><h2>fallAndGetUp3_subject1 <span>30 s</span></h2><video controls autoplay muted loop playsinline src="fallAndGetUp3_subject1.mp4"></video></div>
   </div>
-  <div class="note"><a href="../gifs/index.html">Demo GIF gallery (walk / run / sprint / jump / dance)</a><br>
-    白色：策略；蓝色半透明：参考动作 ghost。评测协议：每条 clip 从首帧整条确定性播放，
-    无观测噪声、无 reset noise、无域随机化，足底摩擦 1.0。
+  <div class="note">
+    Recorded with <code>scripts/record_video.py</code> at 1280×720 and encoded at 960×540.
+    Deterministic policy, no observation/action noise, no reset noise, no domain randomization,
+    foot friction 1.0. Each video starts at an offset inside the clip (chosen to show the
+    characteristic motion), so these are demo excerpts rather than the benchmark protocol.
+    Shorter 14 s GIFs: <a href="../gifs/index.html">GIF gallery</a>.
   </div>
+</main>
 </body>
 </html>

@@ -39,9 +39,9 @@
   [REPRODUCTION_ANALYSIS.md](REPRODUCTION_ANALYSIS.md) /
   [results/lafan1_anchor/](results/lafan1_anchor/)。
 - 视频：[walk1](results/lafan1_anchor/videos/walk1_subject1.mp4) /
-  [dance1](results/lafan1_anchor/videos/dance1_subject1.mp4) /
-  [并排页面](results/lafan1_anchor/videos/index.html)。
-- **Demo GIF**：[walk / run / sprint / jump / dance ×2](results/lafan1_anchor/gifs/index.html)。
+  [dance2](results/lafan1_anchor/videos/dance2_subject3.mp4) /
+  [全部 7 段](results/lafan1_anchor/videos/index.html)（40k，30–40 s）。
+- **Demo GIF**：[walk / sprint / dance / boxing ×2 / fall + get-up](results/lafan1_anchor/gifs/index.html)（15 s，384 px）。
 
 **以下为原仓库作者（RTX 5090）的结果，供对照。**
 

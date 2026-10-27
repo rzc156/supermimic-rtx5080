@@ -3,45 +3,52 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SuperMimic · LAFAN1 demo GIFs · 48k</title>
+<title>SuperMimic · LAFAN1 demo GIFs · 40k</title>
 <style>
   :root { color-scheme: dark; --bg:#0e1116; --panel:#161b23; --line:#252c38; --text:#e8ecf3; --muted:#9aa6b8; --accent:#6ea8fe; }
   * { box-sizing:border-box; }
   body { margin:0; background:var(--bg); color:var(--text); font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.5; }
-  main { max-width:1100px; margin:0 auto; padding:40px 22px 60px; }
+  main { max-width:1080px; margin:0 auto; padding:38px 20px 64px; }
   h1 { font-size:28px; letter-spacing:-0.02em; margin:0 0 6px; }
-  .sub { color:var(--muted); font-size:14px; margin-bottom:24px; }
-  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .sub { color:var(--muted); font-size:14px; margin-bottom:22px; }
+  .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
   figure { margin:0; background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
   img { display:block; width:100%; height:auto; background:#000; }
-  figcaption { padding:10px 12px; font-size:13px; color:#cfd8e8; }
-  figcaption span { color:var(--muted); }
+  figcaption { display:flex; justify-content:space-between; gap:12px; padding:9px 12px; font-size:13px; color:#cfd8e8; }
+  figcaption span { color:var(--muted); font-variant-numeric:tabular-nums; }
   a { color:var(--accent); text-decoration:none; }
   a:hover { text-decoration:underline; }
   .links { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0; }
   .links a { background:#1b2330; border:1px solid var(--line); padding:8px 12px; border-radius:9px; font-size:13px; }
-  @media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:600px){ .grid{grid-template-columns:1fr;} }
+  .note { color:var(--muted); font-size:12.5px; line-height:1.65; margin-top:18px; }
+  @media (max-width:760px){ .grid{grid-template-columns:1fr;} }
 </style>
 </head>
 <body>
 <main>
   <h1>SuperMimic · LAFAN1 demo GIFs</h1>
-  <div class="sub">48k checkpoint · RTX 5080 16GB · white = policy, translucent blue = reference ghost</div>
+  <div class="sub">40k checkpoint · RTX 5080 16GB · 15 s excerpts at 384 px / 12 fps · full 30–40 s videos below</div>
   <div class="links">
     <a href="../../../index.html">Live page</a>
     <a href="https://github.com/rzc156/supermimic-rtx5080">GitHub</a>
     <a href="https://github.com/rzc156/supermimic-rtx5080/blob/main/REPRODUCTION.md">Reproduction report</a>
+    <a href="../videos/index.html">Full videos</a>
   </div>
   <div class="grid">
-    <figure><img loading="lazy" src="walk1.gif" alt="walk"><figcaption>walk1_subject1 <span>· 8 s</span></figcaption></figure>
-    <figure><img loading="lazy" src="run1.gif" alt="run"><figcaption>run1_subject5 <span>· 8 s</span></figcaption></figure>
-    <figure><img loading="lazy" src="sprint1.gif" alt="sprint"><figcaption>sprint1_subject4 <span>· 8 s</span></figcaption></figure>
-    <figure><img loading="lazy" src="jump.gif" alt="jump"><figcaption>jumps1_subject2 <span>· 8 s</span></figcaption></figure>
-    <figure><img loading="lazy" src="dance1.gif" alt="dance 1"><figcaption>dance1_subject1 <span>· 8 s</span></figcaption></figure>
-    <figure><img loading="lazy" src="dance2.gif" alt="dance 2"><figcaption>dance2_subject1 <span>· 8 s</span></figcaption></figure>
+    <figure><img loading="lazy" src="walk1.gif" alt="walk"><figcaption>walk1_subject1 <span>walk · 15 s</span></figcaption></figure>
+    <figure><img loading="lazy" src="sprint1.gif" alt="sprint"><figcaption>sprint1_subject2 <span>sprint · 15 s</span></figcaption></figure>
+    <figure><img loading="lazy" src="dance2.gif" alt="dance"><figcaption>dance2_subject3 <span>dance · 15 s</span></figcaption></figure>
+    <figure><img loading="lazy" src="fight1.gif" alt="boxing"><figcaption>fight1_subject5 <span>boxing · 15 s</span></figcaption></figure>
+    <figure><img loading="lazy" src="fight_sports.gif" alt="boxing footwork"><figcaption>fightAndSports1_subject4 <span>boxing · 15 s</span></figcaption></figure>
+    <figure><img loading="lazy" src="fall_getup.gif" alt="fall and get up"><figcaption>fallAndGetUp3_subject1 <span>fall + get-up · 15 s</span></figcaption></figure>
   </div>
-  <div class="sub" style="margin-top:20px">GIFs are 400 px / 12 fps, generated from the 48k policy. Full MP4s are in <a href="../videos/">videos/</a>.</div>
+  <div class="note">
+    GIFs are 15 s excerpts taken from long LAFAN1 clips (30–40 s of continuous rollout each).
+    The policy is deterministic; no observation noise, no reset noise, no domain randomization,
+    foot friction 1.0. Excerpts start at an offset inside the clip, so this gallery is a
+    <em>demo</em>, not the evaluation protocol — the benchmark always plays each clip from its
+    first frame to the end. The reference ghost is disabled here for a cleaner image.
+  </div>
 </main>
 </body>
 </html>

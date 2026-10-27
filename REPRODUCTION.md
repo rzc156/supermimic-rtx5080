@@ -195,11 +195,16 @@ PYTHONPATH= .venv/bin/python scripts/eval_benchmark.py \
 世界模型：最终 1 步误差 **0.0086**，8 步误差 **0.017**，想象存活率 **1.000**。
 （论文 0.007–0.011 是 BONES-SEED 全量/策略在线口径，LAFAN1 上不能直接比。）
 
-视频：
+视频（40k checkpoint，30–40 s，960×540）：
 
-- `results/lafan1_anchor/videos/dance1_subject1.mp4`（600 步，12 s）
-- `results/lafan1_anchor/videos/walk1_subject1.mp4`（800 步，16 s）
-- `results/lafan1_anchor/videos/dance_sheet.png` / `walk_sheet.png`（四帧拼图）
+- `results/lafan1_anchor/videos/walk1_subject1.mp4`
+- `results/lafan1_anchor/videos/sprint1_subject2.mp4`
+- `results/lafan1_anchor/videos/run1_subject2.mp4`
+- `results/lafan1_anchor/videos/dance2_subject3.mp4`
+- `results/lafan1_anchor/videos/fight1_subject5.mp4`
+- `results/lafan1_anchor/videos/fightAndSports1_subject4.mp4`
+- `results/lafan1_anchor/videos/fallAndGetUp3_subject1.mp4`
+- `results/lafan1_anchor/gifs/`（6 段 15 s GIF，384 px / 12 fps）
 
 ### Run A（论文原始 93 维纯本体观测）
 
@@ -241,7 +246,8 @@ done
 - [x] 修正评测后，Run B 40k 单次为 **0.8515 / 0.8608，2/40 摔倒**。
 - [x] Run B 48k 三次均值为 **0.8375 / 0.8504**，失败 4–6/40；不能宣称 48k 最优。
 - [x] 世界模型最终 1 步误差 0.0086，8 步 0.017；想象存活率 1.000。
-- [x] dance1 / walk1 视频渲染正常，参考 ghost 与策略基本重合。
+- [x] 7 段 40k 演示视频（walk / sprint / run / dance / boxing ×2 / fall+get-up）
+  渲染正常，参考 ghost 与策略基本重合。
 - [ ] Run A（论文原始 93 维纯本体观测）和 Run B 多训练 seed 尚未跑；当前不能
   分离观测、batch/env 与随机种子的影响。
 
