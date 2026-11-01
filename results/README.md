@@ -74,6 +74,7 @@ results/lafan1_anchor/
 │   ├── fight1.gif                  # fight1_subject5
 │   ├── fight_sports.gif            # fightAndSports1_subject4
 │   ├── fall_getup.gif              # fallAndGetUp3_subject1
+│   ├── preview/                    # 320 px README previews of the same 6 clips
 │   └── index.html                  # GIF gallery
 └── videos/                         # full 30-40 s rollouts, 960x540, 50 fps
     ├── walk1_subject1.mp4

@@ -43,6 +43,27 @@
   [全部 7 段](results/lafan1_anchor/videos/index.html)（40k，30–40 s）。
 - **Demo GIF**：[walk / sprint / dance / boxing ×2 / fall + get-up](results/lafan1_anchor/gifs/index.html)（15 s，384 px）。
 
+## 演示（40k checkpoint）
+
+15 s GIF（320 px 预览，点击看 384 px 版）；完整 30–40 s 视频在
+[video page](results/lafan1_anchor/videos/index.html)，全部素材在
+[GIF gallery](results/lafan1_anchor/gifs/index.html)。
+
+<table>
+<tr>
+<td align="center"><a href="results/lafan1_anchor/gifs/index.html"><img src="results/lafan1_anchor/gifs/preview/walk1_subject1.gif" width="280" alt="walk1_subject1"></a><br><sub><b>walk1_subject1</b> · 行走</sub></td>
+<td align="center"><a href="results/lafan1_anchor/gifs/index.html"><img src="results/lafan1_anchor/gifs/preview/sprint1_subject2.gif" width="280" alt="sprint1_subject2"></a><br><sub><b>sprint1_subject2</b> · 冲刺</sub></td>
+<td align="center"><a href="results/lafan1_anchor/gifs/index.html"><img src="results/lafan1_anchor/gifs/preview/dance2_subject3.gif" width="280" alt="dance2_subject3"></a><br><sub><b>dance2_subject3</b> · 舞蹈</sub></td>
+</tr>
+<tr>
+<td align="center"><a href="results/lafan1_anchor/gifs/index.html"><img src="results/lafan1_anchor/gifs/preview/fight1_subject5.gif" width="280" alt="fight1_subject5"></a><br><sub><b>fight1_subject5</b> · 拳击</sub></td>
+<td align="center"><a href="results/lafan1_anchor/gifs/index.html"><img src="results/lafan1_anchor/gifs/preview/fightAndSports1_subject4.gif" width="280" alt="fightAndSports1_subject4"></a><br><sub><b>fightAndSports1_subject4</b> · 拳击步伐</sub></td>
+<td align="center"><a href="results/lafan1_anchor/gifs/index.html"><img src="results/lafan1_anchor/gifs/preview/fallAndGetUp3_subject1.gif" width="280" alt="fallAndGetUp3_subject1"></a><br><sub><b>fallAndGetUp3_subject1</b> · 摔倒 + 起身</sub></td>
+</tr>
+</table>
+
+> 演示片段从长 clip 中间起录以选取代表性动作；benchmark 协议仍是每条 clip 从第 0 帧整条播放。
+
 **以下为原仓库作者（RTX 5090）的结果，供对照。**
 
 ## 结果速览
